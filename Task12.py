@@ -7,13 +7,9 @@
 def Clue(mult, sum):
     y = 1
     while y * y - sum * y + mult != 0:
-        if y > mult:
-            break
-        if y == sum:
-            break
+        if y > mult or y == sum:
+            return 0
         y += 1
-    if y > mult or y == sum:
-        return 0
     x = sum - y
     return x, y
 
@@ -22,4 +18,4 @@ userSum = int(input('Подскажите Кате чему равна сумм�
 if Clue(userMultiplication, userSum) == 0:
     print('Таких чисел не существует')
 else:
-    print(f' Кате загадали числа {Clue(userMultiplication, userSum)}')
+    print(f'Кате загадали числа {Clue(userMultiplication, userSum)}')
